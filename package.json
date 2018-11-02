@@ -1,0 +1,19 @@
+{
+  "name": "vue-gulu",
+  "version": "1.0.0",
+  "description": "\u001b[C\u001b一个简易轮子",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhoumomo18/vue-gulu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhoumomo18/vue-gulu/issues"
+  },
+  "homepage": "https://github.com/zhoumomo18/vue-gulu#readme"
+}
