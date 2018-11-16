@@ -1,6 +1,6 @@
 <template>
-     <button class="g-button" :class="[`icon-${iconPostion}`]">
-         <g-svg v-if="icon" :name='icon'></g-svg>
+     <button class="g-button" :class="[`icon-${iconPostion}`]" @click="showIcon(iconclick)">
+         <g-svg v-if="iconText" :name='iconText' :class="iconText"></g-svg>
         <slot></slot>
     </button>
 
@@ -9,6 +9,13 @@
 <script>
 export default {
   name: "g-button",
+  data() {
+    return {
+      iconText:this.icon,
+      iconTextNew:this.icon,
+      iconclick:this.iconClick,
+    };
+  },
   props: {
     icon: {},
     iconPostion: {
@@ -17,12 +24,32 @@ export default {
       validator(value) {
         return value === "right" || value === "left";
       }
+    },
+    iconClick:{
+        type:String,
+        default:'',
+    }
+  },
+  methods: {   
+    showIcon(val) {
+       if (!val) {return}
+       this.iconText !== this.iconclick ? 
+       this.iconText = this.iconclick : 
+       this.iconText = this.iconTextNew
     }
   }
 };
 </script>
 
 <style scoped lang="scss">
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .g-button {
   display: inline-flex;
   justify-content: center;
@@ -54,5 +81,8 @@ export default {
       margin-right: 0;
     }
   }
+}
+.loading {
+  animation: spin 1s infinite linear;
 }
 </style>
