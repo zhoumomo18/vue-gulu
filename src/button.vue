@@ -1,7 +1,7 @@
 <template>
-     <button class="g-button" :class="[`icon-${iconPostion}`]" @click="showIcon(iconclick)">
+     <button class="g-button" :class="[`icon-${iconPostion}`]" @click="changeIcon(iconclick)">
          <g-svg v-if="iconText" :name='iconText' :class="iconText"></g-svg>
-        <slot></slot>
+         <slot></slot>
     </button>
 
 </template>
@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {   
-    showIcon(val) {
+    changeIcon(val) {
        if (!val) {return}
        this.iconText !== this.iconclick ? 
        this.iconText = this.iconclick : 
